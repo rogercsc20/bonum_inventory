@@ -1,7 +1,9 @@
 flask
 flask-sqlalchemy
+flask-smorest
 psycopg2-binary
 flask-migrate
 python-dotenv
 marshmallow
 sqlalchemy
+flask-jwt-extended
