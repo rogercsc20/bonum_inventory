@@ -1,4 +1,5 @@
 from flask import Flask
+from app.logger import setup_logger
 from config import Config
 from app.extensions import db, migrate, jwt
 from app.routes.user_routes import user_blp
@@ -11,6 +12,9 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
+
+    #Set up logger
+    setup_logger()
 
     app.register_blueprint(user_blp)
 
