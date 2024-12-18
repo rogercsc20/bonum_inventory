@@ -1,0 +1,7 @@
+flask
+flask-sqlalchemy
+psycopg2-binary
+flask-migrate
+python-dotenv
+marshmallow
+sqlalchemy
