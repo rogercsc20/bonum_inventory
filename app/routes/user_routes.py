@@ -74,6 +74,7 @@ class LoginUser(MethodView):
 
 @user_blp.route("/logout")
 class LogoutUser(MethodView):
+
     @jwt_required()
     def post(self):
         """Logout a user by revoking their token"""

@@ -11,17 +11,14 @@ def role_required(*roles):
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
-            # Ensure the request includes a valid JWT
             verify_jwt_in_request()
 
-            # Get the user ID from the JWT and retrieve the user from the database
             current_user_id = get_jwt_identity()
             user = User.query.get(current_user_id)
 
             if not user:
                 return jsonify({"message": "User not found"}), 404
 
-            # Check if the user's role is in the allowed roles
             if user.role not in roles:
                 return jsonify({"message": "Access denied: insufficient permissions"}), 403
 
